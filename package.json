@@ -1,0 +1,12 @@
+{
+  "name": "js-comments-eraser",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["node", "js", "javascript", "delete", "scrape", "comment", "remove", "eraser", "server", "client", "cleaner", "comments"],
+  "author": "aydincandan@gmail.com",
+  "license": "ISC",
+  "description": "clears comments for javascript only"
+}
