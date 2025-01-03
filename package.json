@@ -1,12 +1,28 @@
 {
   "name": "js-comments-eraser",
-  "version": "1.0.1",
-  "main": "index.js",
+  "version": "1.1.0",
+  "main": "index-multi-js-2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["node", "js", "javascript", "delete", "scrape", "comment", "remove", "eraser", "server", "client", "cleaner", "comments"],
+  "keywords": [
+    "node",
+    "js",
+    "javascript",
+    "delete",
+    "scrape",
+    "comment",
+    "remove",
+    "eraser",
+    "server",
+    "client",
+    "cleaner",
+    "comments"
+  ],
   "author": "aydincandan@gmail.com",
   "license": "ISC",
-  "description": "clears comments for javascript only"
+  "description": "It simply clears comments in all javascript files within a folder(in all sub folders[recursively]).",
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  }
 }

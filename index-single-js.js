@@ -1,3 +1,5 @@
+// KEEP: # 1.0.1
+// https://chatgpt.com/share/67758592-d174-8011-be5b-642a87e71019
 const fs = require('fs');
 
 // Function to remove comment lines

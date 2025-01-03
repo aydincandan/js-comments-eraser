@@ -10,13 +10,14 @@ Komut satırından kullanabilmek için **yorumyok.js** gibi bir dosya açın ve 
 
 
 ```
-return yorumyok = require('js-comments-eraser')
+return require('js-comments-eraser')
 ```
 
 Daha sonra aşağıdaki gibi komut satırından kullanın.
 
 ```
-$ node yorumyok yorumlu.js yorumsuz.js
+$ node yorumyok yorumlu.js yorumsuz.js      # 1.0.1
+$ node yorumyok <kaynakDir>                 # 1.1.0
 ```
 
 [js-comments-eraser](https://github.com/aydincandan/js-comments-eraser/pulls) için önerileriniz dikkate alınacaktır.
@@ -34,13 +35,15 @@ $ npm i js-comments-eraser
 To use it from the command line, open a file like **nocomments.js** and paste the following into it.
 
 ```
-return nocomments = require('js-comments-eraser')
+return require('js-comments-eraser')
 ```
 
 Then use it from the command line as follows.
 
 ```
-$ node nocomments withcomments.js withoutcomments.js
+$ node nocomments withcomments.js withoutcomments.js    # 1.0.1
+$ node nocomments <sourceDir>                           # 1.1.0
+
 ```
 
 Your suggestions for [js-comments-eraser](https://github.com/aydincandan/js-comments-eraser/pulls) will be taken into consideration.
