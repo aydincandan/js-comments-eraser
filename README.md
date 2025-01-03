@@ -1,3 +1,6 @@
+
+# DONT USE 1.1.0 version   Some things went wrong
+
 ## Türkçe
 
 Projenize dahil etmek için aşağıdaki gibi yapın.
