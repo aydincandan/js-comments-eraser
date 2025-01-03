@@ -26,8 +26,11 @@ function removeCommentsFromFile(fileContent) {
 
 // Recursive function to process files in a directory
 function processDirectory(sourceDir, targetDir) {
-    // const sourceDir = args[0];
-    // const targetDir = args[1];
+
+// Relative path'ten absolute path'e
+sourceDir = path.resolve(sourceDir);
+targetDir = path.resolve(targetDir);
+
 
     // const HEDEFMEVCUT = fs.existsSync(args[1])
     const HEDEFMEVCUT = fs.existsSync(targetDir)
