@@ -1,6 +1,8 @@
-// const fs = require('fs');
+'use strict';
+
 const path = require('path');
 
+// const fs = require('fs');
 const fs = require('fs-extra');
 
 
@@ -27,31 +29,18 @@ function removeCommentsFromFile(fileContent) {
 // Recursive function to process files in a directory
 function processDirectory(sourceDir, targetDir) {
 
-// Relative path'ten absolute path'e
-sourceDir = path.resolve(sourceDir);
-targetDir = path.resolve(targetDir);
-
-
-    // const HEDEFMEVCUT = fs.existsSync(args[1])
     const HEDEFMEVCUT = fs.existsSync(targetDir)
 
-    // console.log(`Kaynak directory: ${sourceDir}`,`Hedef directory: ${targetDir}`);
-
-    // && path.resolve(sourceDir) === path.resolve(targetDir)
     if (!HEDEFMEVCUT) {
-        // console.warn(`Skipping processing of target directory to avoid infinite loop: ${targetDir}`);
-        // return;
-
-        // , { recursive: false }
         fs.mkdirSync(targetDir); // Create target directory if not exists
-        console.log(`Target directory: ${targetDir}`, "CREATED");
-
+        // console.log(`Target directory: ${targetDir}`, "CREATED");
     }
 
     const items = fs.readdirSync(sourceDir, { withFileTypes: true });
     for (const item of items) {
         const sourcePath = path.join(sourceDir, item.name);
         const targetPath = path.join(targetDir, item.name);
+        // console.log({ sourcePath, targetPath })
 
         if (item.isDirectory()) {
             processDirectory(sourcePath, targetPath);
@@ -74,44 +63,63 @@ targetDir = path.resolve(targetDir);
             // console.log(sourceDir, "\t\t\t->", targetPath);
         }
     }
+    // console.log("Bitti", { sourceDir, targetDir })
 }
 
 // Get command line arguments
 const args = process.argv.slice(2);
 
+// console.log({ args });
+
 // if (args.length !== 2) {
-//     console.error('Usage: node js-comments-eraser <sourceDir> <targetDir>');
+//     console.error('Usage: node [your-js-comments-eraser] <sourceDir> <targetDir>');
 //     process.exit(1);
 // }
 if (args.length !== 1) {
-    console.error('Usage: node your-js-comments-eraser <sourceDir>');
+    console.error('Usage: node [your-js-comments-eraser] <sourceDir>');
     process.exit(1);
 }
 
-const sourceDir = args[0];
-// const targetDir = args[1];
-const targetDir = "clean_dist";
+let sourceDir = args[0]; // basit ifade
+let targetDir = "clean_dist"; // basit ifade
 
-console.log("Start processing")
+console.log()
+console.log("***********************")
+// console.log("Start processing", { sourceDir })
 processDirectory(sourceDir, targetDir);
-console.log(`All .js files from ${sourceDir} have been processed and saved to ${sourceDir}/${targetDir}.`);
+console.log(`The comment lines of all javascript files in the  "${sourceDir}"  folder were deleted and copied to the  "${targetDir}"  folder created in the same folder.`);
+console.log("***********************")
 
 
+const exportet = (user__dirname) => {
 
 
-const tasinacakKlasor = path.join(__dirname, targetDir); // Taşınacak klasör
-const hedefKonum = path.join(__dirname, sourceDir); // Hedef konum
+    if (true) {
 
-// console.log(tasinacakKlasor)
-// console.log(hedefKonum)
+        sourceDir = path.join(user__dirname, targetDir)//** gerçek/tam ifade */
+        targetDir = path.join(user__dirname, args[0])//** gerçek/tam ifade */
 
-setTimeout(() => {
-    fs.move(tasinacakKlasor, hedefKonum, { overwrite: true })
-    .then(() => {
-        console.log('Successfully moved.');
-    })
-    .catch(err => {
-        console.error('Some things went wrong:', err);
-    });
-    
-}, 1000);
+        // console.log({ sourceDir, targetDir, user__dirname });
+
+        const finalDestination = path.join(targetDir, path.basename(sourceDir));
+        // console.log("input params", { sourceDir, targetDir })
+        // console.log("move params2", { sourceDir, finalDestination })
+
+        setTimeout(() => {
+
+            fs.move(sourceDir, finalDestination, { overwrite: true })
+                .then(() => {
+                    console.log('Successfully moved.');
+                })
+                .catch(err => {
+                    console.error('Some things went wrong:', err);
+                });
+
+        }, 1);
+
+
+    }
+
+}
+
+module.exports.dirname = exportet
