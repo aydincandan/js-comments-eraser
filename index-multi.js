@@ -10,9 +10,12 @@ const fs = require('fs-extra');
 function removeCommentsFromFile(fileContent) {
     const commentRegex1 = /(http:\/\/)/gm;
     const commentRegex2 = /(https:\/\/)/gm;
-    const step1 = fileContent.replace(commentRegex1, 'http:--').replace(commentRegex2, 'https:--');
+    
+    const step1 = fileContent
+    .replace(commentRegex1, 'http:--')
+    .replace(commentRegex2, 'https:--');
 
-    // "KEEP" ve "gm;" etiketlerini koruyan düzenli ifade
+    // "KEEP" ve "gm;" etiketlerini koruyan düzenli ifade       buda olması lazım       //g;
     const commentRegex = /\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm;
     const step2 = step1.replace(commentRegex, '');
 
