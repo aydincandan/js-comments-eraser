@@ -27,8 +27,9 @@ function removeCommentsFromFile(fileContent) {
         .replace(/(http:--)/gm, 'http://')
         .replace(/(https:--)/gm, 'https://');
 
-    const falseIfBlockRegex = /if\s*\(\s*false\s*\)\s*\{[\s\S]*?\}/gm;
-    const step4 = step3.replace(falseIfBlockRegex, '');
+    // const falseIfBlockRegex = /if\s*\(\s*false\s*\)\s*\{[\s\S]*?\}/gm;
+    const step4 = step3
+    // .replace(falseIfBlockRegex, '');
 
     return step4;
 }
