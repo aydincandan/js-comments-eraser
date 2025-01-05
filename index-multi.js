@@ -8,20 +8,19 @@ const fs = require('fs-extra');
 
 // Function to remove comment lines but keep specific ones
 function removeCommentsFromFile(fileContent) {
-    const commentRegex1 = /(http:\/\/)/gm;
-    const commentRegex2 = /(https:\/\/)/gm;
-    
     const step1 = fileContent
-    .replace(commentRegex1, 'http:--')
-    .replace(commentRegex2, 'https:--');
+        .replace(/(http:\/\/)/gm, 'http:--')
+        .replace(/(https:\/\/)/gm, 'https:--'); // ilk yapılan tüm http(s) leri -- ile koruma altına alıyoruz? Nedenki sebebi?
 
     // "KEEP" ve "gm;" etiketlerini koruyan düzenli ifade       buda olması lazım       //g;
     const commentRegex = /\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm;
-    const step2 = step1.replace(commentRegex, '');
+    
+    const step2 = step1
+        .replace(/\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm, ''); // ikinci yapılan tüm yorum satırları siliniyor iken "KEEP" ve "gm;" etiketleri de korunuyor.
 
-    const commentRegex1n = /(http:--)/gm;
-    const commentRegex2n = /(https:--)/gm;
-    const step3 = step2.replace(commentRegex1n, 'http://').replace(commentRegex2n, 'https://');
+    const step3 = step2
+        .replace(/(http:--)/gm, 'http://')
+        .replace(/(https:--)/gm, 'https://');
 
     const falseIfBlockRegex = /if\s*\(\s*false\s*\)\s*\{[\s\S]*?\}/gm;
     const step4 = step3.replace(falseIfBlockRegex, '');
