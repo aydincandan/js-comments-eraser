@@ -14,7 +14,7 @@ function removeCommentsFromFile(fileContent) {
 
     // "KEEP" ve "gm;" etiketlerini koruyan düzenli ifade       buda olması lazım       //g;
     const commentRegex = /\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm;
-    
+
     const step2 = step1
         .replace(/\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm, ''); // ikinci yapılan tüm yorum satırları siliniyor iken "KEEP" ve "gm;" etiketleri de korunuyor.
 
@@ -42,9 +42,9 @@ function processDirectory(sourceDir, targetDir) {
     for (const item of items) {
         const sourcePath = path.join(sourceDir, item.name);
         const targetPath = path.join(targetDir, item.name);
-        // console.log({ sourcePath, targetPath })
+        // console.log("TEST(1)",{ sourcePath, targetPath }, {itemisdir:item.isDirectory(),itname:item.name})
 
-        if (item.isDirectory()) {
+        if (item.isDirectory() && (item.name !== 'node_modules' && item.name !== 'clean_dist')) {
             processDirectory(sourcePath, targetPath);
         } else if (item.isFile() && path.extname(item.name) === '.js') {
 
