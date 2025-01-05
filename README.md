@@ -18,7 +18,8 @@ Daha sonra aşağıdaki gibi komut satırından kullanın.
 
 ```
 $ node yorumyok yorumlu.js yorumsuz.js      # 1.0.1
-$ node yorumyok <kaynakDir>                 # 1.1.3
+$ node yorumyok <kaynakDir>                 # >= 1.1.3
+
 ```
 
 [js-comments-eraser](https://github.com/aydincandan/js-comments-eraser/pulls) için önerileriniz dikkate alınacaktır.
@@ -43,7 +44,7 @@ Then use it from the command line as follows.
 
 ```
 $ node nocomments withcomments.js withoutcomments.js    # 1.0.1
-$ node nocomments <sourceDir>                           # 1.1.3
+$ node nocomments <sourceDir>                           # >= 1.1.3
 
 ```
 
