@@ -1,3 +1,5 @@
+//KEEP: # 1.1.4
+// https://chatgpt.com/share/67758592-d174-8011-be5b-642a87e71019
 'use strict';
 
 const path = require('path');
@@ -8,15 +10,18 @@ const fs = require('fs-extra');
 
 // Function to remove comment lines but keep specific ones
 function removeCommentsFromFile(fileContent) {
+    //KEEP REF: https://chatgpt.com/share/67758592-d174-8011-be5b-642a87e71019
     const step1 = fileContent
         .replace(/(http:\/\/)/gm, 'http:--')
         .replace(/(https:\/\/)/gm, 'https:--'); // ilk yapılan tüm http(s) leri -- ile koruma altına alıyoruz? Nedenki sebebi?
 
     // "KEEP" ve "gm;" etiketlerini koruyan düzenli ifade       buda olması lazım       //g;
-    const commentRegex = /\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm;
+    const  commentRegex = /\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm;
+    // //g; da eklendi aşağıda.
+    const commentRegex2 = /\/\/(?!KEEP\b|gm;|g;).*?$|\/\*(?!.*KEEP\b|gm;|g;)[\s\S]*?\*\//gm;
 
     const step2 = step1
-        .replace(/\/\/(?!KEEP\b|gm;).*?$|\/\*(?!.*KEEP\b|gm;)[\s\S]*?\*\//gm, ''); // ikinci yapılan tüm yorum satırları siliniyor iken "KEEP" ve "gm;" etiketleri de korunuyor.
+        .replace(commentRegex2, ''); // ikinci yapılan tüm yorum satırları siliniyor iken "KEEP" ve "gm;" ve "g;" etiketleri de korunuyor.
 
     const step3 = step2
         .replace(/(http:--)/gm, 'http://')

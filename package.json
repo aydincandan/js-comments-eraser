@@ -1,6 +1,6 @@
 {
   "name": "js-comments-eraser",
-            "version": "1.1.4",
+  "version": "1.1.5",
   "main": "index-multi.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,15 @@
     "cleaner",
     "comments"
   ],
-  "author": "aydincandan@gmail.com",
+  "author": "Aydin Candan <aydincandan@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aydincandan/js-comments-eraser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aydincandan/js-comments-eraser/issues"
+  },
+  "homepage": "https://github.com/aydincandan/js-comments-eraser#readme",
   "license": "ISC",
   "description": "It simply clears comments in all javascript files within a folder(in all sub folders[recursively]).",
   "dependencies": {
