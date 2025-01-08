@@ -11,7 +11,7 @@ Komut satırından kullanabilmek için **yorumyok.js** gibi bir dosya açın ve 
 
 
 ```
-return require('js-comments-eraser').dirname(__dirname)
+require('js-comments-eraser').dirname(__dirname)
 ```
 
 Daha sonra aşağıdaki gibi komut satırından kullanın.
@@ -37,7 +37,7 @@ $ npm i js-comments-eraser
 To use it from the command line, open a file like **nocomments.js** and paste the following into it.
 
 ```
-return require('js-comments-eraser').dirname(__dirname)
+require('js-comments-eraser').dirname(__dirname)
 ```
 
 Then use it from the command line as follows.

@@ -2,9 +2,8 @@
 // https://chatgpt.com/share/67758592-d174-8011-be5b-642a87e71019
 'use strict';
 
-const path = require('path');
-
 // const fs = require('fs');
+const path = require('path');
 const fs = require('fs-extra');
 
 
