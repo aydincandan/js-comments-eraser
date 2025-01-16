@@ -51,7 +51,7 @@ function processDirectory(sourceDir, targetDir) {
 
         if (item.isDirectory() && (item.name !== 'node_modules' && item.name !== 'clean_dist')) {
             processDirectory(sourcePath, targetPath);
-        } else if (item.isFile() && path.extname(item.name) === '.js') {
+        } else if (item.isFile() && path.extname(item.name) === '.js' || path.extname(item.name) === '.mjs') {
 
             const fileContent = fs.readFileSync(sourcePath, 'utf8');
             const cleanedContent = removeCommentsFromFile(fileContent);
