@@ -84,7 +84,7 @@ function processDirectory(sourceDir, targetDir) {
 // Get command line arguments
 const args = process.argv.slice(2);
 
-// console.log({ args });
+console.log({ args });
 
 // if (args.length !== 2) {
 //     console.error('Usage: node [your-js-comments-eraser] <sourceDir> <targetDir>');
@@ -102,7 +102,8 @@ console.log()
 console.log("***********************")
 // console.log("Start processing", { sourceDir })
 processDirectory(sourceDir, targetDir);
-console.log(`The comment lines of all javascript files in the  "${sourceDir}"  folder were deleted and copied to the  "${targetDir}"  folder created in the same folder.`);
+// console.log(`All JavaScript files in the  "${sourceDir}"  folder had their comment lines removed and were copied to the  "./${targetDir}"  folder, which was created at the same level.`);
+console.log(`"${sourceDir}" klasöründeki tüm JavaScript dosyalarının yorum satırları silindi ve aynı seviyede oluşturulan "./${targetDir}" klasörüne kopyalandı.`);
 console.log("***********************")
 
 
